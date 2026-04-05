@@ -1,79 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Melting Waveforms — AI Music Label</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Melting Waveforms</title>
+  <meta name="description" content="Melting Waveforms is a dark, neon AI music label featuring Harland Wexler, Kaelith, Sylraen, Elion Veyne, and Alaric West." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oxanium:wght@500;700&display=swap" rel="stylesheet">
 </head>
-<body class="theme-dark">
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
   <header class="site-header">
-    <div class="logo-wrap">
-      <img src="assets/logo-mannequin.png" alt="Melting Waveforms logo" class="logo">
-      <div class="site-title">
-        <h1>Melting Waveforms</h1>
-        <p class="tagline">AI-driven synthwave, EDM and synthpop.</p>
-      </div>
-    </div>
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="harland-wexler.html">Harland Wexler</a>
-      <a href="kaelith.html">Kaelith</a>
-      <a href="sylraen.html">Sylraen</a>
-      <a href="elion-veyne.html">Elion Veyne</a>
-      <a href="alaric-west.html">Alaric West</a>
+    <a class="logo" href="#top" aria-label="Melting Waveforms home">
+      <span>Melting</span> Waveforms
+    </a>
+    <nav class="nav">
+      <a href="#artists">Artists</a>
+      <a href="#sounds">Sounds</a>
+      <a href="#about">About</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <img src="assets/banner-waveform.png" alt="Rainbow spray waveform" class="hero-image">
-      <div class="hero-text">
-        <h2>AI music that bends reality.</h2>
-        <p>Melting Waveforms is a dark, neon-lit label where AI-driven producers explore EDM, synthwave, and synthpop with human stories at the core.</p>
+    <section class="hero" id="top">
+      <div class="hero-content">
+        <p class="tagline">Synthwave • Synthpop • EDM</p>
+        <h1 class="hero-title">AI-crafted nightside soundscapes</h1>
+        <p class="hero-subtitle">
+          Melting Waveforms is a dark, neon label for AI music where rainbow energy,
+          cinematic emotion, and modern digital storytelling collide.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn primary" href="#artists">Meet the artists</a>
+          <a class="btn ghost" href="#sounds">Listen</a>
+        </div>
+
+        <div class="wave-visualizer" aria-hidden="true">
+          <canvas id="mw-wave"></canvas>
+        </div>
       </div>
     </section>
 
-    <section class="artists-grid">
-      <h2>Artists</h2>
-      <div class="artist-card-grid">
+    <section class="artists" id="artists">
+      <h2 class="section-title">AI Artists</h2>
+      <p class="section-subtitle">
+        Five personas, one shared pulse of EDM, synthwave, and synthpop.
+      </p>
+
+      <div class="artist-grid">
         <article class="artist-card artist-harland">
           <h3>Harland Wexler</h3>
-          <p>Grounded indie Americana country-EDM; warm, nostalgic storytelling on love, class, and modern life. Debut album: Halfway Human.</p>
-          <a href="harland-wexler.html" class="btn">View artist</a>
+          <p class="artist-tag">Warm amber / gold</p>
+          <p class="artist-desc">
+            Grounded indie Americana country-EDM. Warm, nostalgic, reflective storytelling
+            about love, class, and modern life.
+          </p>
+          <p class="artist-meta">Debut album: <strong>Halfway Human</strong></p>
         </article>
 
         <article class="artist-card artist-kaelith">
           <h3>Kaelith</h3>
-          <p>Sharp, dark, sarcastic alt-electronic pop social commentary. Debut EP: Half Loaded. Second album: Terms &amp; Conditions (in progress).</p>
-          <a href="kaelith.html" class="btn">View artist</a>
+          <p class="artist-tag">Electric magenta</p>
+          <p class="artist-desc">
+            Sharp, dark, sarcastic alt-electronic pop with social commentary and bite.
+            One name only.
+          </p>
+          <p class="artist-meta">Debut EP: <strong>Half Loaded</strong></p>
         </article>
 
         <article class="artist-card artist-sylraen">
           <h3>Sylraen</h3>
-          <p>Dreamy, edgy atmospheric pop. Debut album: Pretty Ashes In The Dark.</p>
-          <a href="sylraen.html" class="btn">View artist</a>
+          <p class="artist-tag">Soft lavender</p>
+          <p class="artist-desc">
+            Dreamy, edgy atmospheric pop with shimmering textures and a nocturnal mood.
+            One name only.
+          </p>
+          <p class="artist-meta">Debut album: <strong>Pretty Ashes In The Dark</strong></p>
         </article>
 
         <article class="artist-card artist-elion">
           <h3>Elion Veyne</h3>
-          <p>Cinematic, dramatic, emotional pop with powerful female vocals; consuming love, longing, and emotional intensity.</p>
-          <a href="elion-veyne.html" class="btn">View artist</a>
+          <p class="artist-tag">Deep cobalt blue</p>
+          <p class="artist-desc">
+            Cinematic, dramatic emotional pop with powerful female vocals and intense longing.
+          </p>
+          <p class="artist-meta">Theme: <strong>consuming love and emotional intensity</strong></p>
         </article>
 
         <article class="artist-card artist-alaric">
           <h3>Alaric West</h3>
-          <p>High male vocal, emotionally raw synthwave; cycles, heartbreak, social observation. Born as an accidental Harland Wexler persona.</p>
-          <a href="alaric-west.html" class="btn">View artist</a>
+          <p class="artist-tag">Teal / cyan</p>
+          <p class="artist-desc">
+            High male vocal, emotionally raw synthwave-soaked artist about cycles, heartbreak,
+            and social observation.
+          </p>
+          <p class="artist-meta">Origin: <strong>accidental persona from a misattributed Harland song</strong></p>
         </article>
       </div>
+    </section>
+
+    <section class="sounds" id="sounds">
+      <h2 class="section-title">Sounds & Links</h2>
+      <p class="section-subtitle">
+        Add your embeds and platform links here when you’re ready.
+      </p>
+
+      <div class="sounds-layout">
+        <div class="sounds-panel">
+          <h3>Featured mix</h3>
+          <p>
+            Drop in a SoundCloud player, Spotify embed, or any playlist link here.
+          </p>
+          <div class="player-placeholder">
+            <span>Player embed coming soon</span>
+          </div>
+        </div>
+
+        <div class="link-list">
+          <h3>Artist links</h3>
+          <ul>
+            <li><span>Harland Wexler</span> <a href="#">Add link</a></li>
+            <li><span>Kaelith</span> <a href="#">Add link</a></li>
+            <li><span>Sylraen</span> <a href="#">Add link</a></li>
+            <li><span>Elion Veyne</span> <a href="#">Add link</a></li>
+            <li><span>Alaric West</span> <a href="#">Add link</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2 class="section-title">About Melting Waveforms</h2>
+      <p class="section-subtitle">
+        A label home for AI-generated music built to feel cinematic, modern, and alive.
+      </p>
+      <p class="about-text">
+        Melting Waveforms is an evolving label concept where AI voices, neon visuals,
+        and curated songcraft meet. Each artist has a distinct color identity, but they all
+        share a foundation of EDM, synthwave, and synthpop.
+      </p>
+      <p class="about-text">
+        The site is designed for GitHub Pages and can grow later into separate artist pages,
+        embedded music players, and a deeper label catalog.
+      </p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Melting Waveforms. All rights reserved.</p>
+    <p>© <span id="year"></span> Melting Waveforms</p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+      const canvas = document.getElementById('mw-wave');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      let width, height, dpr;
+
+      function resize() {
+        dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+
+      const lines = [
+        { color: '#ff2fd0', amp: 26, freq: 1.7, speed: 0.0018, thickness: 2.2 },
+        { color: '#23d5ff', amp: 18, freq: 2.4, speed: 0.0024, thickness: 1.7 },
+        { color: '#f8ff66', amp: 12, freq: 3.1, speed: 0.0031, thickness: 1.2 }
+      ];
+
+      function draw(time) {
+        ctx.clearRect(0, 0, width, height);
+
+        const centerY = height / 2;
+        const baseAmp = Math.min(height / 2 - 6, 32);
+
+        lines.forEach((line, index) => {
+          const phase = time * line.speed + index * 1.2;
+          const amp = baseAmp * (line.amp / 26);
+          const freq = line.freq;
+
+          ctx.beginPath();
+          ctx.lineWidth = line.thickness;
+
+          const grad = ctx.createLinearGradient(0, 0, width, 0);
+          grad.addColorStop(0, line.color);
+          grad.addColorStop(0.5, '#ffffff');
+          grad.addColorStop(1, line.color);
+          ctx.strokeStyle = grad;
+
+          const steps = 260;
+          for (let i = 0; i <= steps; i++) {
+            const t = i / steps;
+            const x = t * width;
+
+            const baseWave = Math.sin((t * Math.PI * 2 * freq) + phase);
+            const mod = Math.cos((t * Math.PI * 4) - phase * 0.7);
+            const envelope = Math.sin(t * Math.PI);
+
+            const y = centerY + baseWave * mod * envelope * amp;
+
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+
+          ctx.globalAlpha = 0.9;
+          ctx.shadowColor = line.color;
+          ctx.shadowBlur = 12;
+          ctx.stroke();
+          ctx.shadowBlur = 0;
+          ctx.globalAlpha = 1;
+        });
+
+        requestAnimationFrame(draw);
+      }
+
+      requestAnimationFrame(draw);
+    })();
+  </script>
 </body>
 </html>
