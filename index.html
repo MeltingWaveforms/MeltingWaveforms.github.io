@@ -10,9 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oxanium:wght@500;700&display=swap" rel="stylesheet">
 </head>
-  <div class="wave-visualizer" aria-hidden="true">
-    <canvas id="mw-wave"></canvas>
-  </div>
 <body>
   <div class="bg-grid"></div>
   <div class="bg-glow bg-glow-1"></div>
@@ -168,84 +165,5 @@
   <footer class="site-footer">
     <p>© <span id="year"></span> Melting Waveforms</p>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    (function () {
-      const canvas = document.getElementById('mw-wave');
-      if (!canvas) return;
-
-      const ctx = canvas.getContext('2d');
-      let width, height, dpr;
-
-      function resize() {
-        dpr = window.devicePixelRatio || 1;
-        const rect = canvas.getBoundingClientRect();
-        width = rect.width;
-        height = rect.height;
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-
-      window.addEventListener('resize', resize);
-      resize();
-
-      const lines = [
-        { color: '#ff2fd0', amp: 26, freq: 1.7, speed: 0.0018, thickness: 2.2 },
-        { color: '#23d5ff', amp: 18, freq: 2.4, speed: 0.0024, thickness: 1.7 },
-        { color: '#f8ff66', amp: 12, freq: 3.1, speed: 0.0031, thickness: 1.2 }
-      ];
-
-      function draw(time) {
-        ctx.clearRect(0, 0, width, height);
-
-        const centerY = height / 2;
-        const baseAmp = Math.min(height / 2 - 6, 32);
-
-        lines.forEach((line, index) => {
-          const phase = time * line.speed + index * 1.2;
-          const amp = baseAmp * (line.amp / 26);
-          const freq = line.freq;
-
-          ctx.beginPath();
-          ctx.lineWidth = line.thickness;
-
-          const grad = ctx.createLinearGradient(0, 0, width, 0);
-          grad.addColorStop(0, line.color);
-          grad.addColorStop(0.5, '#ffffff');
-          grad.addColorStop(1, line.color);
-          ctx.strokeStyle = grad;
-
-          const steps = 260;
-          for (let i = 0; i <= steps; i++) {
-            const t = i / steps;
-            const x = t * width;
-
-            const baseWave = Math.sin((t * Math.PI * 2 * freq) + phase);
-            const mod = Math.cos((t * Math.PI * 4) - phase * 0.7);
-            const envelope = Math.sin(t * Math.PI);
-
-            const y = centerY + baseWave * mod * envelope * amp;
-
-            if (i === 0) ctx.moveTo(x, y);
-            else ctx.lineTo(x, y);
-          }
-
-          ctx.globalAlpha = 0.9;
-          ctx.shadowColor = line.color;
-          ctx.shadowBlur = 12;
-          ctx.stroke();
-          ctx.shadowBlur = 0;
-          ctx.globalAlpha = 1;
-        });
-
-        requestAnimationFrame(draw);
-      }
-
-      requestAnimationFrame(draw);
-    })();
-  </script>
 </body>
 </html>
