@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Melting Waveforms</title>
-  <meta name="description" content=Melting Waveforms exists somewhere between neon and static — a fictional(AI) label housing artists who sound like real life feels. Electronic at the core, human at the heart. />
+  <meta name="description" content="Melting Waveforms exists somewhere between neon and static — a fictional(AI) label housing artists who sound like real life feels. Electronic at the core, human at the heart." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,10 +39,6 @@
         <div class="hero-cta">
           <a class="btn primary" href="#artists">Meet the artists</a>
           <a class="btn ghost" href="#sounds">Listen</a>
-        </div>
-
-        <div class="wave-visualizer" aria-hidden="true">
-          <canvas id="mw-wave"></canvas>
         </div>
       </div>
     </section>
@@ -140,6 +136,7 @@
             <li><span>Sylraen</span> <a href="#">Add link</a></li>
             <li><span>Elion Veyne</span> <a href="#">Add link</a></li>
             <li><span>Alaric West</span> <a href="#">Add link</a></li>
+            <li><span>Wren Wyngate</span> <a href="#">Add link</a></li>
           </ul>
         </div>
       </div>
@@ -161,6 +158,9 @@
       </p>
     </section>
   </main>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Melting Waveforms</p>
+  </footer>
   <script>
   // Auto year
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -191,9 +191,5 @@
     glow.style.opacity = '0';
   });
 </script>
-
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Melting Waveforms</p>
-  </footer>
 </body>
 </html>
