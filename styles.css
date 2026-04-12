@@ -179,6 +179,11 @@ main {
 }
 
 .hero-title {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  line-height: 1.08;
+  margin: 0 0 1rem;
   background: linear-gradient(90deg, #ff2fd0, #7b2fff, #00f5ff, #ff2fd0);
   -webkit-background-clip: text;
   background-clip: text;
