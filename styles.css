@@ -47,6 +47,14 @@ body {
   overflow-x: hidden;
 }
 
+.logo-img {
+  height: 42px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 0.7rem;
+  border-radius: 6px;
+}
+
 /* Background grid + not glows */
 .bg-grid {
   position: fixed;
