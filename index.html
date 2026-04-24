@@ -33,10 +33,9 @@
         <p class="tagline">Synthwave • Synthpop • EDM</p>
         <h1 class="hero-title">AI-crafted nightside soundscapes</h1>
         <p class="hero-subtitle">
-          Melting Waveforms is a dark, neon label for AI music where electric energy, 
+          Melting Waveforms is a dark, neon label for AI music where electric energy,
           cinematic emotion, and modern digital storytelling collide.
         </p>
-
         <div class="hero-cta">
           <a class="btn primary" href="#artists">Meet the artists</a>
           <a class="btn ghost" href="#sounds">Listen</a>
@@ -47,7 +46,7 @@
     <section class="artists" id="artists">
       <h2 class="section-title">AI Artists</h2>
       <p class="section-subtitle">
-        Six personas, one shared pulse of EDM, synthwave, and synthpop. Still growing...
+        Seven personas, one shared pulse of EDM, synthwave, and synthpop. Still growing...
       </p>
 
       <div class="artist-grid">
@@ -87,7 +86,7 @@
           <p class="artist-desc">
             Cinematic, dramatic emotional pop with powerful female vocals and intense longing.
           </p>
-          <p class="artist-meta">Debut Album: <strong>The Weight of Loving You</strong></p>
+          <p class="artist-meta">Debut album: <strong>The Weight of Loving You</strong></p>
         </article>
 
         <article class="artist-card artist-alaric">
@@ -104,18 +103,28 @@
           <h3>Wren Wyngate</h3>
           <p class="artist-tag">Crimson</p>
           <p class="artist-desc">
-            Raw, fierce country-electronic with heavy dubstep influence and a natural 
+            Raw, fierce country-electronic with heavy dubstep influence and a natural
             country accent. Unapologetic, restless, and impossible to ignore.
           </p>
           <p class="artist-meta">Debut single: <strong>Goodbye Town</strong></p>
-      </article>
+        </article>
+
+        <article class="artist-card artist-solano">
+          <h3>Solano Reid</h3>
+          <p class="artist-tag">Neon lime green</p>
+          <p class="artist-desc">
+            Reggae-influenced EDM fusion with warm deep vocals and a sun-soaked spirit.
+            Grateful, grounded, and impossible not to move to.
+          </p>
+          <p class="artist-meta">Debut single: <strong>Walk In My Shoes</strong></p>
+        </article>
       </div>
     </section>
 
     <section class="sounds" id="sounds">
       <h2 class="section-title">Sounds & Links</h2>
       <p class="section-subtitle">
-        Add your embeds and platform links here when you’re ready.
+        Add your embeds and platform links here when you're ready.
       </p>
 
       <div class="sounds-layout">
@@ -138,6 +147,7 @@
             <li><span>Elion Veyne</span> <a href="#">Add link</a></li>
             <li><span>Alaric West</span> <a href="#">Add link</a></li>
             <li><span>Wren Wyngate</span> <a href="#">Add link</a></li>
+            <li><span>Solano Reid</span> <a href="#">Add link</a></li>
           </ul>
         </div>
       </div>
@@ -154,43 +164,44 @@
         share a foundation of EDM, synthwave, and synthpop.
       </p>
       <p class="about-text">
-        The site is designed for GitHub Pages and can grow later into separate artist pages,
-        embedded music players, and a deeper label catalog.
+        Every sound starts with a human spark — an overheard phrase, a real feeling,
+        a moment worth remembering. AI brings it to life. The result is something that
+        sounds like real life feels.
       </p>
     </section>
   </main>
+
   <footer class="site-footer">
     <p>© <span id="year"></span> Melting Waveforms</p>
   </footer>
+
   <script>
-  // Auto year
-  document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Cursor glow
-  const glow = document.createElement('div');
-  glow.style.cssText = `
-    position: fixed;
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(255,47,208,0.12) 0%, rgba(107,91,255,0.07) 40%, transparent 70%);
-    transition: opacity 0.3s ease;
-    opacity: 0;
-  `;
-  document.body.appendChild(glow);
+    const glow = document.createElement('div');
+    glow.style.cssText = `
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255,47,208,0.12) 0%, rgba(107,91,255,0.07) 40%, transparent 70%);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    `;
+    document.body.appendChild(glow);
 
-  document.addEventListener('mousemove', (e) => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
-    glow.style.opacity = '1';
-  });
+    document.addEventListener('mousemove', (e) => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+      glow.style.opacity = '1';
+    });
 
-  document.addEventListener('mouseleave', () => {
-    glow.style.opacity = '0';
-  });
-</script>
+    document.addEventListener('mouseleave', () => {
+      glow.style.opacity = '0';
+    });
+  </script>
 </body>
 </html>
