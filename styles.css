@@ -180,7 +180,7 @@ main {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   font-weight: 700;
   font-size: clamp(2.4rem, 4vw, 3.6rem);
-  line-height: 1.08;
+  line-height: 1.10;
   margin: 0 0 1rem;
   background: linear-gradient(90deg, #ff0080, #ff6600, #ccff00, #00f5ff);
   -webkit-background-clip: text;
