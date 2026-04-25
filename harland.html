@@ -275,4 +275,97 @@
         <p class="artist-genre">Indie Americana • Country-EDM • Synthwave</p>
         <div class="artist-bio">
           <p>Harland Wexler is Melting Waveforms' grounded storyteller — warm, nostalgic, and impossible not to believe. His music navigates the spaces between class and love, modern life and simpler times, staying and leaving.</p>
-          <p>Rooted in indie Americana with a
+          <p>Rooted in indie Americana with a synthwave and EDM pulse underneath, Harland writes about the people and places that shape you — and the ones that don't quite let go. His songs feel like late night drives, hard truths spoken quietly, and the specific ache of a life half-figured-out.</p>
+          <p>Sometimes the best advice comes from someone who stayed behind.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="discography">
+      <h2 class="discography-title">Discography</h2>
+
+      <div class="album-block">
+        <p class="album-name">Halfway Human <span>Debut Album</span></p>
+        <ul class="song-list">
+          <li>Halfway Human</li>
+          <li>Family Money</li>
+          <li>Nothing Personal</li>
+          <li>Society Sickness</li>
+          <li>My Whole Life</li>
+          <li>Simpler Times</li>
+          <li>Distractions</li>
+          <li>Almost Told You</li>
+          <li>Small Things</li>
+          <li>Quit Playing Victim</li>
+          <li>Only Ever Been You</li>
+          <li>Midnight Gasoline</li>
+        </ul>
+      </div>
+
+      <div class="album-block">
+        <p class="album-name">Singles <span>Additional releases</span></p>
+        <ul class="song-list">
+          <li>Down to the Wire</li>
+          <li>Billionaire</li>
+          <li>Not What I Said</li>
+          <li>Bad Habits</li>
+          <li>Everything Takes Time</li>
+          <li>Dirt Roads To Downtown</li>
+          <li>Committed To Change</li>
+          <li>Somewhere Out Of Sight</li>
+          <li>Ping Pong Heart</li>
+          <li>No Time Like Now</li>
+          <li>Without You</li>
+          <li>Freedom</li>
+          <li>Person of Interest</li>
+          <li>Caught In The Crossfire</li>
+          <li>Live Your Life Loud</li>
+          <li>Honest Lies</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="player-section">
+      <h2>Listen</h2>
+      <div class="player-wrap">
+        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2217458384&color=%23ffb432&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <nav class="artist-nav">
+    <a href="index.html">← Back to Label</a>
+    <span class="current">Harland Wexler</span>
+    <a href="kaelith.html">Kaelith →</a>
+  </nav>
+
+  <script>
+    document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+
+    const glow = document.createElement('div');
+    glow.style.cssText = `
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255,180,50,0.12) 0%, rgba(255,140,0,0.07) 40%, transparent 70%);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    `;
+    document.body.appendChild(glow);
+
+    document.addEventListener('mousemove', (e) => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+      glow.style.opacity = '1';
+    });
+
+    document.addEventListener('mouseleave', () => {
+      glow.style.opacity = '0';
+    });
+  </script>
+</body>
+</html>
