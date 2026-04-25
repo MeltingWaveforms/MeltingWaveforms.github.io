@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaelith — Melting Waveforms</title>
+  <meta name="description" content="Kaelith is a sharp, dark, sarcastic alt-electronic pop artist with social commentary and bite. One name only." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oxanium:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --artist-color: #ff2fd0;
+      --artist-color-dim: rgba(255, 47, 208, 0.15);
+      --artist-color-glow: rgba(255, 47, 208, 0.4);
+      --artist-gradient: linear-gradient(135deg, #ff2fd0, #bf00ff, #ff2fd0);
+    }
+
+    .artist-page {
+      min-height: 100vh;
+      padding: 0 7vw 120px;
+    }
+
+    .artist-header {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 3rem;
+      padding: 80px 0 60px;
+      align-items: start;
+    }
+
+    .artist-photo-wrap {
+      position: relative;
+    }
+
+    .artist-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 3px solid var(--artist-color);
+      box-shadow:
+        0 0 30px var(--artist-color-glow),
+        0 0 60px var(--artist-color-dim),
+        0 0 100px var(--artist-color-dim);
+      display: block;
+    }
+
+    .artist-color-bar {
+      width: 100%;
+      height: 4px;
+      background: var(--artist-gradient);
+      border-radius: 999px;
+      margin-top: 1.2rem;
+      box-shadow: 0 0 12px var(--artist-color-glow);
+    }
+
+    .artist-info {
+      padding-top: 1rem;
+    }
+
+    .artist-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--artist-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .artist-name {
+      font-family: "Oxanium", system-ui, sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.08;
+      margin: 0 0 0.5rem;
+      background: var(--artist-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .artist-genre {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 1.5rem;
+    }
+
+    .artist-bio {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 2rem;
+    }
+
+    .artist-bio p {
+      margin: 0 0 1rem;
+    }
+
+    .discography {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .discography-title {
+      font-family: "Oxanium", system-ui, sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--artist-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .album-block {
+      margin-bottom: 2.5rem;
+    }
+
+    .album-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--artist-color-dim);
+    }
+
+    .album-name span {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .song-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.4rem;
+    }
+
+    .song-list li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .song-list li:hover {
+      background: var(--artist-color-dim);
+      color: var(--text);
+    }
+
+    .player-section {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .player-section h2 {
+      font-family: "Oxanium", system-ui, sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--artist-color);
+      margin-bottom: 1.2rem;
+    }
+
+    .player-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--artist-color-dim);
+      box-shadow: 0 0 30px var(--artist-color-dim);
+    }
+
+    .artist-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 7vw;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to right, rgba(5,3,20,0.96), rgba(5,3,20,0.9));
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .artist-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .artist-nav a:hover {
+      color: var(--artist-color);
+    }
+
+    .artist-nav .current {
+      font-family: "Oxanium", system-ui, sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--artist-color);
+    }
+
+    @media (max-width: 800px) {
+      .artist-header {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 60px 0 40px;
+      }
+
+      .artist-photo-wrap {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .artist-page {
+        padding-inline: 5vw;
+      }
+
+      .artist-nav {
+        padding-inline: 5vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Melting Waveforms home">
+      <img src="logo-transparent1.png" alt="Melting Waveforms logo" class="logo-img" style="height: 42px; width: auto;" />
+      <span>Melting</span> Waveforms
+    </a>
+    <nav class="nav">
+      <a href="index.html#artists">Artists</a>
+      <a href="index.html#sounds">Sounds</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </header>
+
+  <main class="artist-page">
+    <section class="artist-header">
+      <div class="artist-photo-wrap">
+        <img src="Kaelith.png" alt="Kaelith" class="artist-photo" />
+        <div class="artist-color-bar"></div>
+      </div>
+
+      <div class="artist-info">
+        <p class="artist-label">Melting Waveforms Artist</p>
+        <h1 class="artist-name">Kaelith</h1>
+        <p class="artist-genre">Dark Alt-Pop • Electronic • Synthpop • Glitch</p>
+        <div class="artist-bio">
+          <p>Kaelith sees through everything — the ads, the algorithms, the performances of okayness — and she names it all without flinching. Sharp, dark, sarcastic and unapologetic. One name only.</p>
+          <p>Her music lives at the intersection of modern culture and personal reckoning. Whether she's dissecting digital life, calling out manipulation, or turning inward with uncomfortable honesty, Kaelith delivers it with an edge that cuts clean.</p>
+          <p>She's not angry at the world. She just refuses to pretend it makes sense.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="discography">
+      <h2 class="discography-title">Discography</h2>
+
+      <div class="album-block">
+        <p class="album-name">Half Loaded <span>Debut EP</span></p>
+        <ul class="song-list">
+          <li>Goldfish Brain</li>
+          <li>Fake Links & Fast Money</li>
+          <li>Midnight Logic</li>
+          <li>Artificial Intimacy</li>
+          <li>Error 404 (Heart Not Found)</li>
+        </ul>
+      </div>
+
+      <div class="album-block">
+        <p class="album-name">Singles <span>Additional releases</span></p>
+        <ul class="song-list">
+          <li>This Is Almost Too Easy</li>
+          <li>Cutting Corners</li>
+          <li>Scratch My Back</li>
+          <li>Stole My Heart From Me</li>
+          <li>The Rest of Us</li>
+          <li>Always on Trend</li>
+          <li>Broken</li>
+          <li>I Broke Up With My Phone</li>
+          <li>Fake Smiles</li>
+          <li>Catch Me Now</li>
+          <li>Breaking Point</li>
+          <li>Anomalies</li>
+          <li>Leave The Makeup For The Clowns</li>
+          <li>None Taken (No Offense)</li>
+          <li>Subscription For Air</li>
+          <li>Ads</li>
+          <li>Green Eyed Heart</li>
+          <li>Anti-Social</li>
+          <li>Path of Greatest Distance</li>
+          <li>Everyone's Fine</li>
+          <li>Clones</li>
+          <li>Under Your Skin</li>
+          <li>Spirits</li>
+          <li>Play Money</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="player-section">
+      <h2>Listen</h2>
+      <div class="player-wrap">
+        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2210206739&color=%23ff2fd0&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <nav class="artist-nav">
+    <a href="harland.html">← Harland Wexler</a>
+    <span class="current">Kaelith</span>
+    <a href="sylraen.html">Sylraen →</a>
+  </nav>
+
+  <script>
+    const glow = document.createElement('div');
+    glow.style.cssText = `
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255,47,208,0.12) 0%, rgba(191,0,255,0.07) 40%, transparent 70%);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    `;
+    document.body.appendChild(glow);
+
+    document.addEventListener('mousemove', (e) => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+      glow.style.opacity = '1';
+    });
+
+    document.addEventListener('mouseleave', () => {
+      glow.style.opacity = '0';
+    });
+  </script>
+</body>
+</html>
