@@ -186,12 +186,13 @@ main {
   line-height: 1.08;
   margin: 0 0 1rem;
   background: linear-gradient(90deg, 
-  #ff2fd0 0%, 
-  #ff2fd0 33%, 
-  #ccff00 33%, 
-  #ccff00 66%, 
-  #00f5ff 66%, 
-  #00f5ff 100%);
+    #00b4ff 0%,
+    #9b00ff 20%,
+    #ff2fd0 35%,
+    #ccff00 50%,
+    #00f5ff 65%,
+    #ff2fd0 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -227,7 +228,14 @@ main {
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, #ff2fd0, #00f5ff, #bf5fff);
+  background: linear-gradient(90deg,
+    #00b4ff 0%,
+    #9b00ff 20%,
+    #ff2fd0 35%,
+    #ccff00 50%,
+    #00f5ff 65%,
+    #ff2fd0 100%
+  );
   color: #050314;
   box-shadow: 0 0 20px rgba(255,47,208,0.5), 0 0 40px rgba(0,245,255,0.3);
   font-weight: 700;
