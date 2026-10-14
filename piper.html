@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TZS1TSNKHJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TZS1TSNKHJ');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piper Jorin — Melting Waveforms</title>
+  <meta name="description" content="Piper Jorin is a warm, confident pop R&B artist from Los Angeles. She left the spotlight and never looked back." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Oxanium:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --artist-color: #ffd700;
+      --artist-color-dim: rgba(255, 215, 0, 0.15);
+      --artist-color-glow: rgba(255, 215, 0, 0.4);
+      --artist-gradient: linear-gradient(135deg, #ffd700, #ffaa00, #ffd700);
+    }
+
+    .artist-page {
+      min-height: 100vh;
+      padding: 0 7vw 120px;
+    }
+
+    .artist-header {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 3rem;
+      padding: 80px 0 60px;
+      align-items: start;
+    }
+
+    .artist-photo-wrap {
+      position: relative;
+    }
+
+    .artist-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 3px solid var(--artist-color);
+      box-shadow:
+        0 0 30px var(--artist-color-glow),
+        0 0 60px var(--artist-color-dim),
+        0 0 100px var(--artist-color-dim);
+      display: block;
+    }
+
+    .artist-color-bar {
+      width: 100%;
+      height: 4px;
+      background: var(--artist-gradient);
+      border-radius: 999px;
+      margin-top: 1.2rem;
+      box-shadow: 0 0 12px var(--artist-color-glow);
+    }
+
+    .artist-info {
+      padding-top: 1rem;
+    }
+
+    .artist-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--artist-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .artist-name {
+      font-family: "Oxanium", system-ui, sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.08;
+      margin: 0 0 0.5rem;
+      background: var(--artist-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .artist-genre {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 1.5rem;
+    }
+
+    .artist-bio {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 2rem;
+    }
+
+    .artist-bio p {
+      margin: 0 0 1rem;
+    }
+
+    .discography {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .discography-title {
+      font-family: "Oxanium", system-ui, sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--artist-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .album-block {
+      margin-bottom: 2.5rem;
+    }
+
+    .album-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--artist-color-dim);
+    }
+
+    .album-name span {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .song-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.4rem;
+    }
+
+    .song-list li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .song-list li:hover {
+      background: var(--artist-color-dim);
+      color: var(--text);
+    }
+
+    .player-section {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .player-section h2 {
+      font-family: "Oxanium", system-ui, sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--artist-color);
+      margin-bottom: 1.2rem;
+    }
+
+    .player-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--artist-color-dim);
+      box-shadow: 0 0 30px var(--artist-color-dim);
+    }
+
+    .artist-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 7vw;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to right, rgba(5,3,20,0.96), rgba(5,3,20,0.9));
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .artist-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .artist-nav a:hover {
+      color: var(--artist-color);
+    }
+
+    .artist-nav .current {
+      font-family: "Oxanium", system-ui, sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--artist-color);
+    }
+
+    @media (max-width: 800px) {
+      .artist-header {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 60px 0 40px;
+      }
+
+      .artist-photo-wrap {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .artist-page {
+        padding-inline: 5vw;
+      }
+
+      .artist-nav {
+        padding-inline: 5vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Melting Waveforms home">
+      <img src="logo.png" alt="Melting Waveforms logo" class="logo-img" style="height: 42px; width: auto;" />
+      <span>Melting</span> Waveforms
+    </a>
+    <nav class="nav">
+      <a href="index.html#artists">Artists</a>
+      <a href="news.html">News</a>
+      <a href="lore.html">Lore</a>
+      <a href="index.html#sounds">Sounds</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </header>
+
+  <main class="artist-page">
+    <section class="artist-header">
+      <div class="artist-photo-wrap">
+        <img src="piper1.png" alt="Piper Jorin" class="artist-photo" />
+        <div class="artist-color-bar"></div>
+      </div>
+
+      <div class="artist-info">
+        <p class="artist-label">Melting Waveforms Artist</p>
+        <h1 class="artist-name">Piper Jorin</h1>
+        <p class="artist-genre">Pop • R&B • Synthpop • Indie Pop</p>
+        <div class="artist-bio">
+          <p>Piper Jorin grew up on camera before she knew what that meant. Child actress, early start, LA from the beginning — she knows this city in a way most people only pretend to.</p>
+          <p>She left the spotlight quietly. No announcement, no drama. She just stopped showing up to the things that didn't feel real anymore and started paying attention to the ones that did. Now she works the front desk at a hotel where nobody knows her name from before, and she likes it that way.</p>
+          <p>Her music is warm, specific, and entirely her own. She's not trying to make it back. She chose this on purpose.</p>
+          <p style="font-size: 0.88rem; color: var(--artist-color); font-style: italic;">She left the spotlight and never looked back.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="discography">
+      <h2 class="discography-title">Discography</h2>
+
+      <div class="album-block">
+        <p class="album-name">Singles <span>All Releases</span></p>
+        <ul class="song-list">
+          <li>On Purpose</li>
+          <li>Just Noticing Twice</li>
+          <li>Robin's Friend</li>
+          <li>Pass Me The Plate (with Andy)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="player-section">
+      <h2>Listen</h2>
+      <div class="player-wrap">
+        <!-- Replace with Piper's SoundCloud playlist embed URL when available -->
+        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/melting-waveforms&color=%23ffd700&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <nav class="artist-nav">
+    <a href="avery.html">← Avery Nox</a>
+    <span class="current">Piper Jorin</span>
+    <a href="andy.html">Andy →</a>
+  </nav>
+
+  <script>
+    const glow = document.createElement('div');
+    glow.style.cssText = `
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255,215,0,0.12) 0%, rgba(255,170,0,0.07) 40%, transparent 70%);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    `;
+    document.body.appendChild(glow);
+
+    document.addEventListener('mousemove', (e) => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+      glow.style.opacity = '1';
+    });
+
+    document.addEventListener('mouseleave', () => {
+      glow.style.opacity = '0';
+    });
+  </script>
+</body>
+</html>
